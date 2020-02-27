@@ -30,6 +30,7 @@ class DockerExtension {
 
     private static final String DEFAULT_DOCKERFILE_PATH = 'Dockerfile'
     private String name = null
+    private String host = null
     private File dockerfile = null
     private String dockerComposeTemplate = 'docker-compose.yml.template'
     private String dockerComposeFile = 'docker-compose.yml'
@@ -60,6 +61,14 @@ class DockerExtension {
     public String getName() {
         Preconditions.checkArgument(!Strings.isNullOrEmpty(name), "name is a required docker configuration item.")
         return name
+    }
+
+    String getHost() {
+        return host
+    }
+
+    void setHost(String host) {
+        this.host = host
     }
 
     public void setDockerfile(File dockerfile) {

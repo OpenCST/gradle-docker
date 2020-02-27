@@ -108,6 +108,10 @@ class DockerRunPlugin implements Plugin<Project> {
                     args.add('-p')
                     args.add(port)
                 }
+                if (ext.host) {
+                    args.add '--host'
+                    args.add(ext.host)
+                }
                 for (Entry<Object,String> volume : ext.volumes.entrySet()) {
                     File localFile = project.file(volume.key)
 

@@ -32,6 +32,7 @@ class DockerRunExtension {
     private Map<String,String> env = ImmutableMap.of()
     private List<String> arguments = ImmutableList.of()
     private Map<Object,String> volumes = ImmutableMap.of()
+    private String host = null;
     private boolean daemonize = true
     private boolean clean = false
 
@@ -136,4 +137,11 @@ class DockerRunExtension {
         Preconditions.checkArgument(0 < val && val <= 65536, "Port must be in the range [1,65536]")
     }
 
+    String getHost() {
+        return host
+    }
+
+    void setHost(String host) {
+        this.host = host
+    }
 }
